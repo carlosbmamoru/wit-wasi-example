@@ -11,6 +11,12 @@ Add - wasm32 compiler
 ```
 $ rustup target add wasm32-wasi
 ```
+
+Creat a new component
+```
+cargo component new command --command
+```
+
 Check generated wasm file 
 
 ```

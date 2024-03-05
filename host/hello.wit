@@ -1,6 +1,38 @@
 package component:guest;
 
+
+interface env {
+    abort: func(message: string, filename: string);
+    assert: func(condition: s32, message: string);
+}
+
+interface mamoru {
+    query: func(query: string) -> string;
+    report: func(incident-json-ptr: string);
+    http: func(request-json-ptr: string) -> string;
+    parameter: func(key: string) -> string;
+    u256-from-str: func(str: string) -> u64;
+}
+
+interface mamoru-storage {
+    open-external: func(input: string) -> s32;
+    get: func(input: string) -> list<string>;
+    set: func(input: string)  ->  list<string>;
+    delete: func(input: string);
+    keys: func(input: string) -> list<string>;
+}
+
+interface mamoru-evm {
+    parse-tx-input: func(abi: string, input: string) -> u64;
+}
+
+
 /// An example world for the component to target.
 world hello {
-    export hello-world: func() -> string;
+    import env;
+    import mamoru;
+    import mamoru-storage;
+    import mamoru-evm;
+    ///export hello-world: func() -> string;
+    export entrypoint: func();
 }

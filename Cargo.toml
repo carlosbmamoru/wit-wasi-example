@@ -1,3 +1,2 @@
 [workspace]
-members = [ "guest", "host",
-]
+members = [ "guest", "host"]
